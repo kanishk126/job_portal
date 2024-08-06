@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - status_bar_control (3.2.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - status_bar_control (from `.symlinks/plugins/status_bar_control/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  status_bar_control:
+    :path: ".symlinks/plugins/status_bar_control/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  status_bar_control: 7c84146799e6a076315cc1550f78ef53aae3e446
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.15.2
