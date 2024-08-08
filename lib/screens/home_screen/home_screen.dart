@@ -97,8 +97,7 @@ class HomeScreen extends GetView<HomeScreenController>{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Obx(()=>
-                        ListView.separated(
+                        Obx(()=> ListView.separated(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: controller.filteredDetails.length,
