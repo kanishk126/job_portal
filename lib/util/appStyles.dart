@@ -48,7 +48,7 @@ static inputDecoration({
     hintStyle: Appstyles.textStyle(
       color: color,
       fontSize: fontSize,
-      fontWeight: fontWeight
+      fontWeight: fontWeight,
     ),
     contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 14),
     border: OutlineInputBorder(
@@ -73,6 +73,7 @@ static inputDecoration({
     ),
     filled: filled ?? false,
     fillColor: fillColor,
+    suffixIcon: suffixIcon
   );
 }
 

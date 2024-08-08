@@ -98,7 +98,8 @@ commonButton({
   required String title,
   required void Function() onTap,
   Widget? icon,
-  required bool isIcon
+  required bool isIcon,
+  List<BoxShadow>? boxShadow,
 
 }){
   return InkWell(
@@ -108,6 +109,7 @@ commonButton({
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
         borderRadius: BorderRadius.circular(10),
+        boxShadow: boxShadow
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

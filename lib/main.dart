@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:job_portal/util/appColors.dart';
@@ -6,8 +8,21 @@ import 'package:job_portal/util/routes/app_pages.dart';
 import 'package:job_portal/util/routes/app_routes.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'firebase_options.dart';
+
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    runApp(const MyApp());
+  } catch (e) {
+    if (kDebugMode) {
+      print('Error initializing Firebase: $e');
+    }
+    // Handle the error as needed
+  }
 }
 
 class MyApp extends StatelessWidget {

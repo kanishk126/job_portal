@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "890549645315",
+    "project_id": "jobportal-f1613",
+    "storage_bucket": "jobportal-f1613.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890549645315:android:17976bd6c3c7cc17b55e36",
+        "android_client_info": {
+          "package_name": "com.example.job_portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890549645315-ue6amp9saupeti3c6f6folc3q5cpbmku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.job_portal",
+            "certificate_hash": "2884ad29866d27ca3bb03b53900aaafc3c862946"
+          }
+        },
+        {
+          "client_id": "890549645315-h7ubj9ug84aockrpbqpma60sots5htn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYG_I5DAHwX30te2dEJ4K-2bvaR71JKW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890549645315-h7ubj9ug84aockrpbqpma60sots5htn1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "890549645315-rfb73c5k33mnbjri34d955pk4jbagdqc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.job-portal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
