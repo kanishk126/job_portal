@@ -86,6 +86,7 @@ class LoginScreen extends GetView<LoginScreenController>{
                     ),
                     onTap: (){
                       AuthServices().signInWithGoogle();
+
                     }
                 ),
               ],
