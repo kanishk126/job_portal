@@ -56,7 +56,7 @@ class AuthServices extends GetxController {
       await _auth.signOut();
       await _googleSignIn.signOut();
       await _clearUserCredentials();
-      Get.offAndToNamed(AppRoutes.logInScreen);
+      Get.offNamed(AppRoutes.logInScreen);
     } catch (e) {
       Get.snackbar('Error', e.toString());
     }
@@ -68,7 +68,7 @@ class AuthServices extends GetxController {
     await prefs.setString('displayName', user.displayName ?? '');
     await prefs.setString('email', user.email ?? '');
     await prefs.setString('photoURL', user.photoURL ?? '');
-    await prefs.setString('isLogged', 'false');
+    await prefs.setString('isLogged', 'true');
   }
 
   Future<void> _clearUserCredentials() async {
@@ -77,6 +77,6 @@ class AuthServices extends GetxController {
     await prefs.remove('displayName');
     await prefs.remove('email');
     await prefs.remove('photoURL');
-    await prefs.setString('isLogged', 'true');
+    await prefs.setString('isLogged', 'false');
   }
 }

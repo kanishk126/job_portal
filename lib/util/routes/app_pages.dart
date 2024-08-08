@@ -17,7 +17,7 @@ class AppPages{
         binding: SplashBinding()
     ),
     GetPage(
-        name: AppRoutes.initial,
+        name: AppRoutes.logInScreen,
         page: ()=> LoginScreen(),
         binding: LoginScreenBinding()
     ),

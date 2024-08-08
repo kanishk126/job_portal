@@ -11,20 +11,33 @@ class SplashScreen extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "Job Portal",
-            textScaleFactor: 1.0,
-            style: Appstyles.textStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500,
-                color: AppColors.black,
-            ),
+      body: DecoratedBox(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [
+                    AppColors.white,
+                    AppColors.gray,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter
+              )
           ),
-        ]
+          child:Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(controller.text,
+                    textScaleFactor: 1.0,
+                    style: Appstyles.textStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.black,
+                    ),
+                  ),
+                ),
+              ]
+          )
       )
     );
   }

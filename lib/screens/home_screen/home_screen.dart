@@ -17,38 +17,57 @@ class HomeScreen extends GetView<HomeScreenController>{
   Widget build(BuildContext context) {
     return Scaffold(
       key: controller.key,
-      drawer: Drawer(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 5.h,),
-              Row(
-                children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.grey.withOpacity(0.2),
-                    child: const ClipOval(
-                      child: Icon(Icons.person)
+      drawer: Obx(
+        ()=> Drawer(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 5.h,),
+                Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(controller.photo.value,
+                      height: 70,
+                        width: 70,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 1.h,),
-                  commonText(text: "Name",
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600
-                  )
-                ],
-              ),
-              const Spacer(),
-              commonButton(
-                  title: 'Log Out',
-                  onTap: (){
-                    AuthServices().signOut();
-                  },
-                  isIcon: false
-              )
-            ],
+                    SizedBox(width: 2.h,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        commonText(text: controller.name.value,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600
+                        ),
+                        SizedBox(height: 1.h,),
+                        Container(
+                          width: 42.w,
+                          child: commonText(
+                            text: controller.email.value,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            textOverFlow: TextOverflow.clip
+                          ),
+                        )
+
+                      ],
+                    ),
+                      ],
+                    ),
+                const Spacer(),
+                commonButton(
+                    title: 'Log Out',
+                    onTap: (){
+                      AuthServices().signOut();
+                      controller.clearData();
+                    },
+                    isIcon: false
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -72,7 +91,7 @@ class HomeScreen extends GetView<HomeScreenController>{
                 left: 0,
                 right: 0,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.fromLTRB(20.0,20,20,0),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -236,17 +255,17 @@ class HomeScreen extends GetView<HomeScreenController>{
                         ()=> AnimatedContainer(
                           height: controller.height.value,
                           width: controller.width.value,
-                          padding: const EdgeInsets.only(right: 10),
+                          padding: EdgeInsets.only(right: controller.width.value == 80.w ? 0 : 10),
                           decoration: BoxDecoration(
-                              color: controller.width == 80.w ? AppColors.gray : AppColors.white,
-                              borderRadius: BorderRadius.circular(17)
+                              color: controller.width.value == 80.w ? AppColors.gray : AppColors.white,
+                              borderRadius: BorderRadius.circular(13)
                           ),
-                          duration: const Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 300),
                           child: InkWell(
                             onTap: (){
                               controller.increaseHandW();
                             },
-                            child: controller.width == 80.w ?
+                            child: controller.width.value == 80.w ?
                                 Container(
                                   height: controller.height.value,
                                   width: controller.width.value,

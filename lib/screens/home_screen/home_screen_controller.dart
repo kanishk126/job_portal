@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:job_portal/api_provider/api_provider.dart';
-import 'package:job_portal/main.dart';
 import 'package:job_portal/model/company_detail_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreenController extends GetxController {
   final GlobalKey <ScaffoldState> key = GlobalKey();
@@ -18,9 +18,12 @@ class HomeScreenController extends GetxController {
   RxString searchQuery = RxString(''); // Observable search query
   final storage = GetStorage();
   String description = 'On a Mac with Apple silicon: Choose Apple menu  > Shut Down, press and hold the power button until “Loading startup options” appears, select Options, click Continue, then follow the onscreen instructions. On a Mac with Apple silicon: Choose Apple menu  > Shut Down, press and hold the power button until “Loading startup options” appears, select Options, click Continue, then follow the onscreen instructions.';
-
+  var name = ''.obs;
+  var email = ''.obs;
+  var photo = ''.obs;
   @override
   void onInit() {
+    getUserData();
     super.onInit();
     getData();
     filteredDetails.value = details;
@@ -81,4 +84,13 @@ class HomeScreenController extends GetxController {
     final words = text.split(' ');
     return words.length <= 2 ? text : '${words[0]} ${words[1]}';
   }
+
+  getUserData() async{
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    name.value = preferences.getString('displayName') ?? '';
+    email.value = preferences.getString('email') ?? '';
+    photo.value = preferences.getString('photoURL') ?? '';
+  }
+
+
 }

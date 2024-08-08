@@ -1,12 +1,10 @@
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../util/app_constants.dart';
 import '../../util/routes/app_routes.dart';
 
 class SplashController extends GetxController {
   var isFirstTime = "";
+  var text = "Job Portal";
 
   @override
   onInit() async {
@@ -16,9 +14,10 @@ class SplashController extends GetxController {
     super.onInit();
   }
 
-  switchScreen() async {
-    isFirstTime == 'true'
-        ? Get.offNamed(AppRoutes.initial)
+  switchScreen() {
+    print('fcchhghg${isFirstTime}');
+    isFirstTime == 'false'
+        ? Get.offNamed(AppRoutes.logInScreen)
         : Get.offNamed(AppRoutes.homeScreen);
   }
 }
